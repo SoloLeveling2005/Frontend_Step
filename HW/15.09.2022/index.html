@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ol {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="padding-left: 10px;">Домашнее задание №9-10: Введение в ООП</h1>
+    <ol>
+        <li>Написать функцию, которая принимает двузначное число и возвращает его в текстовом виде. Например: 35 – тридцать пять, 89 – восемьдесят девять, 12 – двенадцать. </li>
+        
+        <li>Написать функцию, которая заменяет в полученной строке большие буквы на маленькие, маленькие – на большие, а цифры – на знак нижнего подчёркивания. </li>
+        <li>3.Написать функцию, которая принимает любое количество строк, объединяет их в одну длинную строку и возвращает ее. </li>
+        <li>Написать функцию – калькулятор. Функция принимает строку с примером, определяет, какое действие необходимо выполнить (+ - * /), переводит операнды в числа, решает пример и возвращает результат.</li>
+        <li>Написать функцию, которая принимает строку и разделитель и возвращает массив подстрок, разбитых с помощью указанного разделителя. </li>
+        Например: строка “10/08/2020”, разделитель “/”, результат: “10”, “08”, “2020”. </li>
+    </ol>
+
+    <script>
+        
+        function go() {
+            let other_number = {
+                11:"одиннадцать",
+                12:"двенадцать",
+                13:"тринадцать",
+                14:"четырнадцать",
+                15:"пятнадцать",
+                16:"шестнадцать",
+                17:"семнадцать",
+                18:"восемнадцать",
+                19:"девятнадцать",
+            }
+            let first_number = {
+                1:"один",
+                2:"два",
+                3:"три",
+                4:"четыре",
+                5:"пять",
+                6:"шесть",
+                7:"семь",
+                8:"восемь",
+                9:"девять",
+            }
+            let second_number = {
+                1:"десять",
+                2:"двадцать",
+                3:"тридцать",
+                4:"сорок",
+                5:"пятдесят",
+                6:"шестьдесят",
+                7:"семьдесят",
+                8:"восемьдесят",
+                9:"девяносто",
+            }
+            let num = +prompt("Введите двухзначное число");
+            let num_split = String(num).split("");
+            let numm_is_other = false
+            let numm = "";
+            function func_one(){
+                for (let i in other_number) {
+                    if (i == num) {
+                        numm += other_number[i]
+                        numm_is_other = true
+                    } 
+                }
+                if (numm_is_other == false) {
+                    for (let ii in second_number) {
+                        if (ii==num_split[0]) {
+                            numm += `${second_number[ii]} `
+                        }
+                    }
+                    for (let iii in first_number) {
+                        if (iii==num_split[1]) {
+                            numm += first_number[iii]
+                        }
+                    }
+                    
+                }
+                alert(numm)
+            }
+            func_one()
+
+
+
+            
+            // let str_new = ""
+            // let numbers = ["1","2","3","4","5","6","7","8","9","0"]
+            
+            // let str = prompt("Введите строку")
+            // function func_two() {
+            //     for (let i of str) {
+            //         let new_i = ""
+            //         if (`${i}` == `${i}`.toUpperCase()) {
+            //             new_i = i.toLowerCase()
+            //         } else {
+            //             new_i  = i.toUpperCase()
+            //         }
+            //         for (let num of numbers) {
+            //             if (i == num) {
+            //                 new_i = "_"
+            //             } else {
+            //                 console.log("Не число")
+            //             }
+            //         }
+            //         console.log(i)
+            //         str_new += new_i
+            //     }
+            //     alert(`Ваша строка:${str} \nПреобразованная:${str_new}`)
+            // }
+            // func_two()
+            
+
+
+
+            // let str_all = ""
+            // function func_three() {
+            //     let str = prompt("Введите строку, если хотите вывести введите 'да'")
+            //     if (str == "да") {
+            //         alert(str_all)
+            //     } else {
+            //         str_all += (str + " ")
+            //         func_three()
+            //     }
+            // }
+            // func_three()
+
+
+
+            // let example = prompt("Введите выражение, например: 6/2")
+
+            // function func_four() {
+            //     example = example.split("+")
+            //     if (example.length == 2) {
+            //         alert(`Равно = ${Number(example[0])+Number(example[1])}`)
+            //     } else {
+            //         example = example[0].split("-")
+            //         if (example.length == 2) {
+            //             alert(`Равно = ${Number(example[0])-Number(example[1])}`)
+            //         } else {
+            //             example = example[0].split("*")
+            //             if (example.length == 2) {
+            //                 alert(`Равно = ${Number(example[0])*Number(example[1])}`)
+            //             } else {
+            //                 example = example[0].split("/")
+            //                 if (example.length == 2) {
+            //                     alert(`Равно = ${Number(example[0])/Number(example[1])}`)
+            //                 } else {
+            //                     alert("Неизвестный знак")
+            //                 }
+            //             }
+            //         }
+            //     }       
+            // }
+            // func_four()
+
+
+            // function func_five(){
+            //     let data = prompt("Введите дату")
+            //     let split_symbol = prompt("Введите разделитель")
+            //     let split_data = data.split(split_symbol)
+            //     alert(split_data)
+            // }
+            // func_five()
+
+        }
+
+        setTimeout(go, 100);
+    </script>
+</body>
+</html>
