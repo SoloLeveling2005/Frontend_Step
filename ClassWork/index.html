@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Задание 1
+        // let mass = [8,9,10,1,2,3,4,5,6,7,20,-10]
+        // let small = mass[0]
+        // let big = 0
+        // for (let i of mass) {
+        //     if (small>i) {
+        //         small = i
+        //     } else if (big<i) {
+        //         big = i
+        //     }
+            
+        // }
+        // console.log(small)
+        // console.log(big)
+
+        // Задание 2
+        mass = []
+        for (let i = 0;i<5;i++) {
+            tell = +prompt("Введите число")
+            mass.push(tell)
+        }
+        console.log(`Массив ${mass}`)
+
+        let amount = 0
+        for (let i of mass) {
+            amount += Number(i)
+        }
+        console.log(`Сумма ${amount}`)
+
+        let average = 0
+        for (let i of mass) {
+            average += Number(i)
+        }
+        console.log(`Среднее ${average/(mass.length)}`)
+
+        // Задание 3
+    </script>
+</body>
+</html>
