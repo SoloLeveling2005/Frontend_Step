@@ -24,6 +24,7 @@ body {
     background-color: black;
     color: white;
     padding: 10px;
+    overflow-x: hidden;
 }
 
 .tasks button {
