@@ -1,0 +1,109 @@
+<!doctype html>
+ 
+<html>
+<head>
+    <title>Раскрывающейся списка</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+        ul.expandable li { list-style-image: url('./plus.gif') }
+        li ul.expandable { display: none } /* выставить в none */
+    </style>
+    <script type="text/javascript">
+        /*
+            Опишите функцию setPlusIcon(), которая 
+            - устанавливает для элементов li значок [+], 
+                если этот элемент имеет вложенный список
+            - регистрирует функцию aClick в качестве обработчика события onclick
+                для всех ссылок
+        */
+        /*
+            Запустите функцию setPlusIcon() при загрузке страницы
+        */
+        function setPlusIcon(){
+            let all_li = document.getElementsByTagName("LI");
+            for(let i = 0; i < all_li.length; i++){
+                let li = all_li[i];
+                let all_ul = li.getElementsByTagName("UL");
+                if(all_ul.length > 0){
+                    if(all_ul[0].className == "expandable")
+                        li.style.listStyleImage = "url('../../images/plus.gif')";
+                }
+            }
+            let all_a = document.getElementsByTagName('a')
+            for(let i=0; i < all_a.length; i++){
+                all_a[i].addEventListener('click', aClick);
+            }
+        }
+        window.onload = setPlusIcon;
+ 
+        function aClick(e){
+            e = e || event;
+            li = e.target.parentNode || e.srcElement.parentNode;
+            li_ul = li.children;
+            if (li_ul.length > 0){
+                for(var i = 0; i < li_ul.length;i++){
+                    if(li_ul[i].tagName="UL"){
+                        console.log(li_ul[i].tagName);
+                        if(li_ul[i].style.display == "block"){
+                            li_ul[i].style="pointer-events: none; cursor: default;";
+                        }
+                        else if(li_ul[i].style.display == "none" || li_ul[i].style.display == ""){
+                            li_ul[i].style.display = "block";
+                        }
+                    }
+                }
+            }
+        }   
+        
+    </script>
+</head>
+ 
+<body>
+    <h1>Пример раскрывающегося списка</h1>
+    <ul class="expandable">
+        <li>
+            <a href="#">Книги</a>
+            <ul class="expandable">
+                <li>
+                    <a href="#">Отечественные</a>
+                    <ul class="expandable">
+                        <li><a href="#">Детективы</a></li>
+                        <li><a href="#">Научная фантастика</a></li>
+                        <li><a href="#">Исторические</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Зарубежные</a>
+                    <ul class="expandable">
+                        <li><a href="#">Детективы</a></li>
+                        <li><a href="#">Научная фантастика</a></li>
+                        <li><a href="#">Исторические</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">DVD</a>
+            <ul class="expandable">
+                <li>
+                    <a href="#">Отечественные</a>
+                    <ul class="expandable">
+                        <li><a href="#">Детективы</a></li>
+                        <li><a href="#">Научная фантастика</a></li>
+                        <li><a href="#">Исторические</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Зарубежные</a>
+                    <ul class="expandable">
+                        <li><a href="#">Детективы</a></li>
+                        <li><a href="#">Научная фантастика</a></li>
+                        <li><a href="#">Исторические</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
+</html>
