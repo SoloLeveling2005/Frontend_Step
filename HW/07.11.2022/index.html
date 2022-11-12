@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 90vh;
+        }
+        .look-end {
+            /* display: flex; */
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: absolute;
+            width: 400px;
+            height: 250px;
+
+            left: calc(50vw - 200px);
+            top: calc(50vh - 125px);
+            background-color: #fff;
+            
+            }
+        .look-end button {
+            padding: 8px 18px;
+            border: 0px;
+            font-size: 18px;
+            border-radius: 20px;
+            background-color: rgb(133, 133, 133);
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1008" height="512"></canvas>
+    <div class="look-end">
+        <h1 style="margin: 0;">Ваш счет:</h1>
+        <h2 class="score">12</h2>
+        <button class="reload">Повторим?</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
